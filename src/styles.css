@@ -50,22 +50,26 @@ h4 {
 }
 
 app-page {
-    page: --resume-page;
+    main {
+        page: --resume-page;
+    }
 }
 
 @media print {
-    :is(body, app-root) {
+    :is(body, app-root, app-page) {
         display: contents !important;
     }
 
     app-page {
-        margin: 0 !important;
-        padding: 0 !important;
-        border: 0 !important;
-        box-shadow: none !important;
-        width: 8.5in !important;
-        height: 11in !important;
-        min-height: 0 !important;
+        main {
+            margin: 0 !important;
+            padding: 0 !important;
+            border: 0 !important;
+            box-shadow: none !important;
+            width: 8.5in !important;
+            height: 11in !important;
+            min-height: 0 !important;
+        }
     }
 }
 
