@@ -1,125 +1,133 @@
-<main>
-    <h1>
-        Steve Fulghum
-    </h1>
+<main aria-label="Steve Fulghum's resume">
+    <h1>Steve Fulghum</h1>
     <section class="title-heading">
-        <ul aria-label="titles">
+        <ul aria-label="Self-described titles">
             <li>Senior UI Developer</li>
-            <li>CSS Warlock</li>
             <li>Front-end Expert</li>
             <li>Accessibility Champion</li>
+            <li>CSS Warlock</li>
         </ul>
     </section>
-    <address class="title-subheading">
-        <ul aria-label="contact information">
-            <li>Email: <a href="mailto:steve@fulghum.digital">steve&#64;fulghum.digital</a></li>
-            <li>GitHub: <a href="https://github.com/stevefulghum">github.com&#47;stevefulghum</a></li>
-            <li>LinkedIn: <a href="https://linkedin.com/in/stephenjfulghum">linkedin.com&#47;in&#47;stephenjfulghum</a></li>
-        </ul>
+    <address class="title-subheading" aria-label="contact information">
+        <p>Email: <a href="mailto:steve@fulghum.digital">steve&#64;fulghum.digital</a></p>
+        <p>GitHub: <a href="https://github.com/stevefulghum">github.com&#47;stevefulghum</a></p>
+        <p>LinkedIn: <a href="https://linkedin.com/in/stephenjfulghum">linkedin.com&#47;in&#47;stephenjfulghum</a></p>
     </address>
-    <section class="introduction">
+    <section class="introduction" aria-label="introduction">
         <p>I'm a UI developer with a passion for crafting modern front-end experiences.</p>
         <p>I bring a broad skillset to teams, built on 15 years of building and experimenting on the web.</p>
         <p>My specialty is working with UX teams to implement their designs in performant, accessible ways, but I easily
             jump to collaborating with back-end teams to get the data where it needs to be.</p>
     </section>
-    <section class="technical-skills">
-        <h2>Technical Skills</h2>
+    <section class="technical-skills" aria-labelledby="technical-skills-heading">
+        <h2 id="technical-skills-heading">Technical Skills</h2>
         <ul>
             <li>HTML/CSS/Sass</li>
-            <li>JavaScript, TypeScript</li>
-            <li>Accessibility</li>
-            <li>Design systems</li>
-            <li>Responsive design</li>
+            <li>JavaScript, TypeScript, Node</li>
             <li>React, Angular, Next, Nest</li>
             <li>Web components</li>
+            <li>WCAG Accessibility</li>
+            <li>Responsive design</li>
+            <li>Design systems, Storybook</li>
+            <li>Webpack, Vite</li>
+            <li>Jest, Cypress, RTL, aXe Core</li>
             <li>Git</li>
-            <li>Technical communication, writing, & editing</li>
+            <li>Docker, AWS</li>
+            <li>Technical writing, & editing</li>
         </ul>
     </section>
-    <section class="education">
-        <h2>Education</h2>
+    <section class="education" aria-labelledby="education-heading">
+        <h2 id="education-heading">Education</h2>
         <ul>
             <li>
                 Ithaca College
-                <ul>
+                <ul aria-label="Major and minor">
                     <li>BA, Creative Writing</li>
-                    <li>Minor in German</li>
+                    <li>Minor, German Area Studies</li>
                 </ul>
             </li>
             <li>
                 BU Center for Digital Imaging Arts
-                <ul>
-                    <li>Professional Certificate Graphic & Web Design</li>
+                <ul aria-label="Certificate">
+                    <li>Certificate, Graphic & Web Design</li>
                 </ul>
             </li>
         </ul>
     </section>
-    <section class="experience">
-        <h2>Experience</h2>
-        <article>
+    <section class="experience" aria-labelledby="experience-heading">
+        <h2 id="experience-heading">Experience</h2>
+        <article aria-labelledby="vestmark-heading">
             <header>
-                <h3>Vestmark</h3>
-                <p>Wakefield, MA</p>
-                <h4>Senior UI Developer</h4>
-                <p><time datetime="2021-09">September 2021</time> to <time datetime="present">Present</time></p>
-                <h4>UI Developer</h4>
-                <p><time datetime="2019-03">March 2019</time> to <time datetime="2021-09">September 2021</time></p>
+                <div>
+                    <h3 id="vestmark-heading">Vestmark</h3>
+                    <p>Wakefield, MA</p>
+                </div>
+                <div>
+                    <h4>Senior UI Developer</h4>
+                    <p><time datetime="2021-09">September 2021</time> to <time datetime="present">Present</time></p>
+                </div>
+                <div>
+                    <h4>UI Developer</h4>
+                    <p><time datetime="2019-03">March 2019</time> to <time datetime="2021-09">September 2021</time></p>
+                </div>
             </header>
             <ul>
-                <li>Built and maintained UI features across Vestmark's financial application suite</li>
-                <li>Led the development of a component library to provide consistent UI elements:</li>
-                <li>Themed for light and dark modes</li>
-                <li>Focused on responsive behavior</li>
-                <li>Baked in accessibility</li>
-                <li>Played a central role in the development of the UI framework for Vestmark's VAST proposal generation
-                    application</li>
-                <li>Ran UI chapter meetings</li>
+                <li>Led the design and delivery of a React-based component library enabling consistent UI patterns, theming, and WCAG 2.1 AA accessibility</li>
+                <li>Developed the front-end architecture for Vestmark's VAST proposal generation application using modular, scalable TypeScript and SCSS</li>
+                <li>Improved application responsiveness and performance across desktop and tablet form factors</li>
+                <li>Facilitated front-end team growth through UI chapter leadership</li>
             </ul>
         </article>
-        <article>
+        <article aria-labelledby="commonwealth-heading">
             <header>
-                <h3>Commonwealth Financial Network</h3>
-                <p>Waltham, MA</p>
-                <h4>Front-end Developer</h4>
-                <p><time datetime="2015-06">June 2015</time> to <time datetime="2019-02">February 2019</time></p>
+                <div>
+                    <h3 id="commonwealth-heading">Commonwealth Financial Network</h3>
+                    <p>Waltham, MA</p>
+                </div>
+                <div>
+                    <h4>Front-end Developer</h4>
+                    <p><time datetime="2015-06">June 2015</time> to <time datetime="2019-02">February 2019</time></p>
+                </div>
             </header>
             <ul>
-                <li>Implemented designs and features for legacy financial applications, including:</li>
-                <li>Video player and playlist page for in-house content</li>
-                <li>Front-end pages for a new messaging system between advisors and clients</li>
-                <li>Worked with UX designers to implement a design system</li>
-                <li>Spearheaded style guide and coding standards initiatives</li>
+                <li>Developed interactive front-end features for legacy financial tools using jQuery, CSS3, and HTML5</li>
+                <li>Prototyped next-generation financial application suite with Angular and custom UI components</li>
+                <li>Designed and implemented a custom HTML5 video player and playlist UI for internal media publishing</li>
+                <li>Collaborated with UX to implement a design system and codify layout patterns</li>
+                <li>Authored front-end guidelines and led efforts to unify styling conventions</li>
             </ul>
         </article>
-        <article>
+        <article aria-labelledby="wayfair-heading">
             <header>
-                <h3>Wayfair</h3>
-                <p>Boston, MA</p>
-                <h4>Front-end Engineer</h4>
-                <p><time datetime="2013-06">June 2013</time> to <time datetime="2015-06">June 2015</time></p>
+                <div>
+                    <h3 id="wayfair-heading">Wayfair</h3>
+                    <p>Boston, MA</p>
+                </div>
+                <div>
+                    <h4>Front-end Engineer</h4>
+                    <p><time datetime="2013-06">June 2013</time> to <time datetime="2015-06">June 2015</time></p>
+                </div>
             </header>
             <ul>
-                <li>Maintained sites in the Wayfair family</li>
-                <li>Translated page designs into HTML and CSS from mockups created by the in-house design team</li>
-                <li>Utilized and wrote code with an emphasis on reusability and minimalism</li>
-                <li>Interacted on a daily basis with project and business managers</li>
-                <li>Coordinated project development between departments</li>
-                <li>Ensured cross-browser compatibility and graceful degradation</li>
+                <li>Converted mockups into performant HTML5 and Sass templates for Wayfair brand sites</li>
+                <li>Built responsive, semantic layouts optimized for SEO and mobile performance</li>
+                <li>Wrote modular, reusable CSS and JS with a focus on maintainability</li>
+                <li>Collaborated daily with designers, PMs, and back-end teams to deliver features on tight timelines</li>
+                <li>Ensured consistent rendering across modern browsers and older environments through graceful degradation techniques</li>
             </ul>
         </article>
     </section>
-    <footer role="contentinfo">
-        <section class="publications">
-            <h2>Publications</h2>
+    <footer aria-label="Related side projects">
+        <section class="publications" aria-labelledby="publications-heading">
+            <h2 id="publications-heading">Publications</h2>
             <p>Simulating Drop Shadows with the CSS Paint API</p>
-            <p>CSS-Tricks.com, <time datetime="2020-12-29">Dec, 29, 2020</time></p>
+            <p><i>CSS-Tricks.com</i>, <i><time datetime="2020-12-29">Dec, 29, 2020</time></i></p>
             <p><a href="https://tinyurl.com/32hrh945">https://tinyurl.com/32hrh945</a></p>
         </section>
-        <section class="projects">
-            <h2>Projects</h2>
+        <section class="projects" aria-labelledby="projects-heading">
+            <h2 id="projects-heading">Projects</h2>
             <p>Worksheet.tools</p>
-            <p>An Angular app used to create word search puzzles</p>
+            <p><i>An Angular app used to create word search puzzles</i></p>
             <p><a href="https://beta.worksheet.tools/wordsearch/v1">https://beta.worksheet.tools/wordsearch/v1</a></p>
         </section>
     </footer>

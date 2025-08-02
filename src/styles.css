@@ -60,10 +60,13 @@ app-page {
         display: contents !important;
     }
 
+    a {
+        text-decoration: none;
+        color: #000;
+    }
+
     app-page {
         main {
-            margin: 0 !important;
-            padding: 0 !important;
             border: 0 !important;
             box-shadow: none !important;
             width: 8.5in !important;
