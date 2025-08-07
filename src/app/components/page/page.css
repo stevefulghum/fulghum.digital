@@ -10,20 +10,12 @@
     --font-size-education-has-ul: 1.5cqh;
     --font-size-education-ul-li: 1.4cqh;
     --font-size-experience-ul-li: 1.55cqh;
-    --font-size-footer-section-h2: 1.75cqh;
-    --font-size-footer-section-p: 1.5cqh;
-    --font-size-h2-media: 1.5rem;
-    --font-size-title-heading-media: 1rem;
-    --font-size-introduction-media: 1rem;
-    --font-size-technical-skills-media: 1rem;
-    --font-size-education-media: 1rem;
-    --font-size-education-ul-media: 1rem;
-    --font-size-education-ul-li-media: 1rem;
-    --font-size-education-ul-li-ul-li-media: 1rem;
-    --font-size-experience-article-media: 1rem;
-    --font-size-experience-ul-media: 1rem;
-    --font-size-experience-ul-li-media: 1rem;
-    --font-size-experience-ul-li-ul-li-media: 1rem;
+    --font-size-footer-h2: 1.75cqh;
+    --font-size-footer-p: 1.5cqh;
+    --font-size-education-ul-li-ul-li: 1rem;
+    --font-size-experience-article: 1rem;
+    --font-size-experience-ul: 1rem;
+    --font-size-experience-ul-li-ul-li: 1rem;
 
     display: flex;
     flex-direction: column;
@@ -85,7 +77,7 @@
             align-items: center;
             justify-content: flex-start;
             grid-column: 1 / -1;
-            font-size: var(--font-size-title-heading);
+            font-size: var(--font-size-title-subheading);
             grid-row: 2 / 3;
     
             > ul {
@@ -308,20 +300,39 @@
     
                 h2 {
                     margin: 0 0 .75cqh;
-                    font-size: var(--font-size-footer-section-h2);
+                    font-size: var(--font-size-footer-h2);
                 }
-    
+
                 p {
                     margin: 0;
                     padding: 0;
                     font-weight: 300;
-                    font-size: var(--font-size-footer-section-p);
+                    font-size: var(--font-size-footer-p);
                 }
             }
         }
     }
 
     @media (width < 768px) {
+        --font-size-h2: 1.5rem;
+        --font-size-h3: 1.25rem;
+        --font-size-h4: 1.125rem;
+        --font-size-header: 1.125rem;
+        --font-size-title-subheading: 1rem;
+        --font-size-introduction: 1rem;
+        --font-size-technical-skills: .95rem;
+        --font-size-education: .95rem;
+        --font-size-education-ul: .95rem;
+        --font-size-education-ul-li: .95rem;
+        --font-size-education-ul-li-ul-li: .95rem;
+        --font-size-experience-article: .95rem;
+        --font-size-experience-ul: 1rem;
+        --font-size-experience-ul-li: 1rem;
+        --font-size-experience-ul-li-ul-li: 1rem;
+        --font-size-education-has-ul: 1rem;
+        --font-size-footer-h2: 1.5rem;
+        --font-size-footer-p: 1.25rem;
+                
         display: block;
         width: 100vw;
         flex: 1 1 max-content;
@@ -351,6 +362,7 @@
                         line-height: 1.25;
                         text-align: center;
                         padding-left: 0;
+
                         &:nth-child(2) {
                             flex: 0 0 8ch;
                         }
@@ -366,7 +378,8 @@
                 ul {
                     display: block;
                     column-count: 2;
-                    list-style-position: inside;
+                    column-gap: 3ch;
+                    margin-left: 3ch;
                 }
             }
 
@@ -374,11 +387,16 @@
                 > ul {
                     display: block;
                     column-count: 2;
-                    list-style-position: inside;
+                    column-gap: 1ch;
                 }
             }
             .experience {
                 margin-top: .5lh;
+
+                ul {
+                    margin-left: 3ch;
+                    padding-right: 2ch;
+                }
             }
 
             footer {
@@ -394,13 +412,26 @@
         }
     }
     @media (768px <= width < 1024px) and (orientation: landscape) {
-        --font-size-title-heading: 1.5rem;
+        --font-size-h2: 1.5rem;
+        --font-size-h3: 1.25rem;
+        --font-size-h4: 1.125rem;
+        --font-size-header: 1.125rem;
         --font-size-title-subheading: 1rem;
         --font-size-introduction: 1rem;
         --font-size-technical-skills: 1rem;
         --font-size-education: 1rem;
         --font-size-education-ul: 1rem;
-        
+        --font-size-education-ul-li: 1rem;
+        --font-size-education-ul-li-ul-li: 1rem;
+        --font-size-experience-article: 1rem;
+        --font-size-experience-ul: 1rem;
+        --font-size-experience-ul-li: 1rem;
+        --font-size-experience-ul-li-ul-li: 1rem;
+        --font-size-education-has-ul: 1rem;
+        --font-size-footer-h2: 1.5rem;
+        --font-size-footer-p: 1.25rem;
+
+
         main {
             border: 0;
             box-shadow: none;
@@ -420,14 +451,9 @@
                 grid-row: 1 / 2;
             }
 
-            h2 {
-                font-size: var(--font-size-h2-media);
-            }
-
             .title-heading {
                 grid-column: 1 / 2;
                 grid-row: 2 / 3;
-                font-size: var(--font-size-title-heading);
                 height: 1.5lh;
                 padding-right: 1ch;
                 > ul {
@@ -440,40 +466,22 @@
             .title-subheading {
                 grid-column: 1 / 2;
                 grid-row: 3 / 4;
-                font-size: var(--font-size-title-subheading);
             }
 
             .introduction {
                 grid-column: 1 / 2;
                 grid-row: 4 / 5;
-                font-size: var(--font-size-introduction);
                 max-width: 75ch;
             }
 
             .technical-skills {
                 grid-column: 2 / 3;
                 grid-row: 1 / -1;
-                font-size: var(--font-size-technical-skills);
             }
 
             .education {
                 grid-column: 3 / 4;
                 grid-row: 1 / -1;
-                font-size: var(--font-size-education);
-
-                > ul {
-                    font-size: var(--font-size-education-ul);
-
-                    li {
-                        font-size: var(--font-size-education-ul-li-media) !important;
-
-                        > ul {
-                            li {
-                                font-size: var(--font-size-education-ul-li-ul-li-media) !important;
-                            }
-                        }
-                    }
-                }
             }
 
             .experience {
@@ -494,18 +502,18 @@
 
                 > article {
                     grid-row: 2 / -1;
-                    font-size: var(--font-size-experience-article-media);
+                    font-size: var(--font-size-experience-article);
                 }
 
                 > ul {
-                    font-size: var(--font-size-experience-ul-media);
+                    font-size: var(--font-size-experience-ul);
 
                     li {
-                        font-size: var(--font-size-experience-ul-li-media) !important;
+                        font-size: var(--font-size-experience-ul-li) !important;
 
                         ul {
                             li {
-                                font-size: var(--font-size-experience-ul-li-ul-li-media) !important;
+                                font-size: var(--font-size-experience-ul-li-ul-li) !important;
                             }
                         }
                     }
@@ -516,6 +524,12 @@
                 grid-column: 5/6;
                 grid-row: 1/-1;
                 flex-flow: column nowrap;
+
+                > section {
+                    width: max-content;
+                    flex: 0 0 max-content;
+                    padding-right: 2ch;
+                }
             }
         }
     }
