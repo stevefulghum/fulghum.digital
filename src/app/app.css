@@ -14,4 +14,12 @@
     font-style: normal;
     font-synthesis: none;
     text-rendering: optimizeLegibility;
+
+    @media (width < 1024px) {
+        display: block;
+        width: 100vw;
+        height: auto;
+        min-height: 0;
+        overflow-x: hidden;
+    }
 }
