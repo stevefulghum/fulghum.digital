@@ -1,25 +1,7 @@
 :host {
     box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    display: block;
+    width: 100vw;
+    overflow-x: hidden;
     min-height: 100vh;
-    min-width: 100vw;
-    background-color: #fff;
-    color: #000;
-    font-size: 16px;
-    line-height: 1.5;
-    font-weight: 400;
-    font-style: normal;
-    font-synthesis: none;
-    text-rendering: optimizeLegibility;
-
-    @media (width < 1024px) {
-        display: block;
-        width: 100vw;
-        height: auto;
-        min-height: 0;
-        overflow-x: hidden;
-    }
 }

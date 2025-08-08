@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 :is(html, body) {
+    background-color: #ddd;
     box-sizing: border-box;
     font-family: 'futura-pt', sans-serif;
     margin: 0;
@@ -21,7 +22,7 @@ h1 {
 
 h2 {
     font-weight: 500;
-    font-size: var(--font-size-h2, 2.5cqh);
+    font-size: var(--font-size-h2, 2.25cqh);
     margin: 0;
     padding: 0;
     text-box-trim: trim-both;
@@ -31,7 +32,7 @@ h2 {
 
 h3 {
     font-weight: 500;
-    font-size: var(--font-size-h3, 2cqh);
+    font-size: var(--font-size-h3, 1.95cqh);
     margin: 0;
     padding: 0;
     text-box-trim: trim-both;
@@ -41,7 +42,7 @@ h3 {
 
 h4 {
     font-weight: 500;
-    font-size: var(--font-size-h4, 1.75cqh);
+    font-size: var(--font-size-h4, 1.66cqh);
     margin: 0;
     padding: 0;
     text-box-trim: trim-both;
@@ -56,6 +57,10 @@ app-page {
 }
 
 @media print {
+    html {
+        background-color: #fff !important;
+    }
+
     :is(body, app-root, app-page) {
         display: contents !important;
     }
