@@ -4,7 +4,6 @@
     /* Font size variables */
     --font-size-main: 16px;
     --font-size-header: 1.66cqh;
-    --font-size-title-heading: 1.75cqh;
     --font-size-title-subheading: 1.66cqh;
     --font-size-introduction: 1.6cqh;
     --font-size-technical-skills: 1.6cqh;
@@ -14,10 +13,27 @@
     --font-size-experience-ul-li: 1.55cqh;
     --font-size-footer-h2: 1.75cqh;
     --font-size-footer-p: 1.5cqh;
-    --font-size-education-ul-li-ul-li: 1rem;
     --font-size-experience-article: 1rem;
     --font-size-experience-ul: 1rem;
     --font-size-experience-ul-li-ul-li: 1rem;
+
+    /* Spacing variables */
+    --space-page-gap-x: 1.5%;
+    --space-main-padding: 1.25%;
+    --space-h1-margin-bottom: 1.25cqh;
+    --space-section-gap: 1cqh;
+    --space-title-heading-list-gap: 1ch;
+    --space-title-subheading-gap: 1cqh;
+    --space-title-subheading-padding-inline-start: 1.75cqw;
+    --space-technical-skills-margin-top: 2cqh;
+    --space-education-margin-top: 2cqh;
+    --space-list-gap: .55cqh;
+    --space-list-margin-inline-start: 2.5cqw;
+    --space-list-margin-block-start: .25cqh;
+    --space-education-nested-ul-margin: .25cqh 0 .5cqh 2.75cqw;
+    --space-experience-gap: 1.5cqh;
+    --space-footer-gap: 1cqh;
+    --space-footer-section-padding: 1cqh;
 
     background-color: #ddd;
     display: flex;
@@ -37,15 +53,44 @@
         width: auto;
         height: 90vh;
         min-height: min(640px, 400vh);
-        gap: 0 1.5%;
+        gap: 0 var(--space-page-gap-x);
         border: 1px solid #000;
         box-sizing: border-box;
         background-color: #fff;
         color: #000;
         font-size: var(--font-size-main);
         box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.1);
-        padding: 1.25%;
+        padding: var(--space-main-padding);
         
+        /* Flex utilities */
+        :where(.u-flex-col-start) {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+        }
+
+        :where(.u-flex-row-center-start) {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        :where(.u-flex-row-start-start) {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: flex-start;
+        }
+
+        :where(.u-flex-row-baseline-start) {
+            display: flex;
+            flex-direction: row;
+            align-items: baseline;
+            justify-content: flex-start;
+        }
+
         /* Shared element resets within the page */
         ul {
             margin: 0;
@@ -68,15 +113,27 @@
             margin-bottom: 1.25cqh;
         }
 
-        header {
+        /* Shared section layout */
+        .section {
             display: flex;
             flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            gap: var(--space-section-gap);
+        }
+
+        /* Shared flex UL layout */
+        :where(.technical-skills ul, .education > ul, .experience ul) {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+        }
+
+        header {
             gap: .25cqh;
     
             > div {
-                display: flex;
-                flex-direction: row;
-                align-items: baseline;
                 gap: 0 .125cqw;
 
                 > p {
@@ -101,12 +158,7 @@
         }
     
         /* Shared layout for section headers */
-        .title-heading,
-        .title-subheading {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: flex-start;
+        :is(.title-heading, .title-subheading) {
             grid-column: 1 / -1;
             font-size: var(--font-size-title-subheading);
         }
@@ -123,7 +175,7 @@
                 align-items: center;
                 justify-content: flex-start;
                 list-style-position: inside;
-                gap: 1ch;
+                gap: var(--space-title-heading-list-gap);
     
                 li {
                     &:first-child {
@@ -143,18 +195,13 @@
             height: 3cqh;
             font-weight: 300;
             grid-row: 3 / 4;
-            gap: 1cqh;
-            padding-left: 1.75cqw;
+            gap: var(--space-title-subheading-gap);
+            padding-left: var(--space-title-subheading-padding-inline-start);
         }
     
         .introduction {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: flex-start;
             grid-column: 1 / 6;
             font-size: var(--font-size-introduction);
-            gap: 1cqh;
             grid-row: 4 / 5;
             margin-top: 1cqh;
             hyphens: none;
@@ -165,22 +212,13 @@
         }
     
         .technical-skills {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: flex-start;
             grid-column: 1 / 6;
             grid-row: 5 / 6;
             font-size: var(--font-size-technical-skills);
-            gap: 1cqh;
-            margin-top: 2cqh;
+            margin-top: var(--space-technical-skills-margin-top);
     
             ul {
-                margin-left: 2.5cqw;
-                display: flex;
-                flex-direction: column;
-                align-items: flex-start;
-                justify-content: flex-start;
+                margin-left: var(--space-list-margin-inline-start);
                 
                 li {
                     font-weight: 300;
@@ -190,27 +228,13 @@
         }
     
         .education {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: flex-start;
             grid-column: 1 / 6;
             grid-row: 6 / 7;
             font-size: var(--font-size-education);
-            gap: 1cqh;
-            margin-top: 2cqh;
-    
-            h2 {
-                margin: 0;
-                padding: 0;
-                line-height: 1;
-            }
+            margin-top: var(--space-education-margin-top);
+
     
             > ul {
-                display: flex;
-                flex-direction: column;
-                align-items: flex-start;
-                justify-content: flex-start;
                 list-style: none;
     
                 > li {
@@ -229,7 +253,7 @@
                         margin-left: 0;
 
                         ul {
-                            margin: .25cqh 0 .5cqh 2.75cqw;
+                            margin: var(--space-education-nested-ul-margin);
                             padding-left: 0cqw;
                             list-style-type: disc;
 
@@ -246,13 +270,9 @@
         }
     
         .experience {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: flex-start;
             grid-column: 6 / -1;
             grid-row: 4/7;
-            gap: 1.5cqh;
+            gap: var(--space-experience-gap);
     
             h2 {
                 margin-top: 1cqh;
@@ -260,21 +280,14 @@
             }
     
             p {
-                margin: 0;
                 line-height: 1.25;
             }
     
             ul {
-                display: flex;
-                flex-direction: column;
-                align-items: flex-start;
-                justify-content: flex-start;
-
-                /* list-style: none; */
-                gap: .55cqh;
+                gap: var(--space-list-gap);
                 list-style-position: outside;
-                margin-left: 2.5cqw;
-                margin-top: .25cqh;
+                margin-left: var(--space-list-margin-inline-start);
+                margin-top: var(--space-list-margin-block-start);
     
                 li {
                     padding-left: .25cqw;
@@ -288,21 +301,13 @@
         footer {
             grid-column: 1 / -1;
             grid-row: 7 / 8;
-            display: flex;
-            flex-direction: row;
-            align-items: flex-start;
-            justify-content: flex-start;
-            gap: 1cqh;
+            gap: var(--space-footer-gap);
             
             > section {
                 box-sizing: border-box;
                 flex: 1 1 0;
-                display: flex;
-                flex-direction: column;
-                align-items: flex-start;
-                justify-content: flex-start;
                 background-color: rgba(0, 0, 0, 0.125);
-                padding: 1cqh;
+                padding: var(--space-footer-section-padding);
                 border-radius: .5cqh;
                 width: 50%;
     
@@ -320,6 +325,11 @@
     }
 
     @media only screen and (width < 768px) and (pointer: coarse) {
+        /* Spacing overrides for mobile */
+        --space-main-padding: 1ch;
+        --space-list-margin-inline-start: 3ch;
+        --space-footer-gap: 1ch;
+        --space-footer-section-padding: 1ch;
         --font-size-h2: 1.5rem;
         --font-size-h3: 1.25rem;
         --font-size-h4: 1.125rem;
@@ -328,9 +338,7 @@
         --font-size-introduction: 1rem;
         --font-size-technical-skills: .95rem;
         --font-size-education: .95rem;
-        --font-size-education-ul: .95rem;
         --font-size-education-ul-li: .95rem;
-        --font-size-education-ul-li-ul-li: .95rem;
         --font-size-experience-article: .95rem;
         --font-size-experience-ul: 1rem;
         --font-size-experience-ul-li: 1rem;
@@ -346,7 +354,6 @@
         height: max-content;
         
         main {
-            /* aspect-ratio: auto; */
             container-type: unset;
             display: block;
             border: 0;
@@ -432,6 +439,8 @@
     }
 
     @media only screen and (768px <= width < 1024px) and (orientation: landscape) and (pointer: coarse) {
+        /* Spacing overrides for tablet landscape */
+        --space-page-gap-x: 2ch;
         --font-size-h1: 2.5rem;
         --font-size-h2: 1.5rem;
         --font-size-h3: 1.25rem;
@@ -441,9 +450,7 @@
         --font-size-introduction: 1rem;
         --font-size-technical-skills: 1rem;
         --font-size-education: 1rem;
-        --font-size-education-ul: 1rem;
         --font-size-education-ul-li: 1rem;
-        --font-size-education-ul-li-ul-li: 1rem;
         --font-size-experience-article: 1rem;
         --font-size-experience-ul: 1rem;
         --font-size-experience-ul-li: 1rem;
