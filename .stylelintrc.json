@@ -10,7 +10,14 @@
     "property-no-unknown": [
       true,
       {
-        "ignoreProperties": ["page", "text-box-trim", "text-box-edge"]
+        "ignoreProperties": [
+          "page", 
+          "text-box-trim", 
+          "text-box-edge",
+          "row-rule-width",
+          "row-rule-style",
+          "row-rule-color"
+        ]
       }
     ],
     "unit-allowed-list": null,
@@ -35,6 +42,13 @@
         "ignore": ["stylelint-commands", "after-comment"]
       }
     ],
+    "shorthand-property-no-redundant-values": true,
+    "declaration-block-no-duplicate-properties": true,
+    "declaration-block-no-redundant-longhand-properties": true,
+    "max-nesting-depth": 7,
+    "no-unknown-animations": true,
+    "no-duplicate-selectors": true,
+    "no-duplicate-at-import-rules": true,
     "no-descending-specificity": null
   }
 }
