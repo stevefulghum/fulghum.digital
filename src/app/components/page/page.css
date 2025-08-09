@@ -31,7 +31,10 @@
     main {
         container-type: size;
         container-name: resume-page;
-        aspect-ratio: 8.5 / 11;
+        aspect-ratio: if(
+            media((width < 768px) and (pointer: coarse)): auto;
+            else: 8.5 / 11;
+        );
         display: grid;
         grid-template-columns: repeat(16, minmax(0, 1fr));
         grid-template-rows: repeat(5, min-content) minmax(0, 1fr) min-content;
@@ -47,6 +50,10 @@
         box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.1);
         padding: 1.25%;
     
+        @supports not (width: if(true, 100px, 200px)) {
+            aspect-ratio: 8.5 / 11;
+        }
+
         h1 {
             grid-column: 1 / -1;
             grid-row: 1 / 2;
@@ -350,12 +357,11 @@
         height: max-content;
         
         main {
-            aspect-ratio: auto;
+            /* aspect-ratio: auto; */
             container-type: unset;
             display: block;
             border: 0;
             box-shadow: none;
-            aspect-ratio: auto;
             width: 100vw;
             grid-template-columns: minmax(0, 1fr);
             grid-auto-rows: min-content;
@@ -456,7 +462,7 @@
             align-items: start;
             border: 0;
             box-shadow: none;
-            aspect-ratio: auto;
+            /* aspect-ratio: auto; */
             height: 100dvh;
             max-height: 430px;
             width: auto;
