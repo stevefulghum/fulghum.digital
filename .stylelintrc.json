@@ -1,0 +1,40 @@
+{
+  "extends": ["stylelint-config-standard"],
+  "rules": {
+    "selector-pseudo-class-no-unknown": [
+      true,
+      {
+        "ignorePseudoClasses": ["host"]
+      }
+    ],
+    "property-no-unknown": [
+      true,
+      {
+        "ignoreProperties": ["page", "text-box-trim", "text-box-edge"]
+      }
+    ],
+    "unit-allowed-list": null,
+    "font-family-name-quotes": "always-unless-keyword",
+    "alpha-value-notation": null,
+    "color-function-notation": null,
+    "color-function-alias-notation": null,
+    "length-zero-no-unit": null,
+    "declaration-property-value-no-unknown": null,
+    "unit-no-unknown": null,
+    "rule-empty-line-before": [
+      "always-multi-line",
+      {
+        "except": ["first-nested"],
+        "ignore": ["after-comment"]
+      }
+    ],
+    "comment-empty-line-before": [
+      "always",
+      {
+        "except": ["first-nested"],
+        "ignore": ["stylelint-commands", "after-comment"]
+      }
+    ],
+    "no-descending-specificity": null
+  }
+}

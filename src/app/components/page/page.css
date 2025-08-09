@@ -279,6 +279,7 @@
                 flex-direction: column;
                 align-items: flex-start;
                 justify-content: flex-start;
+
                 /* list-style: none; */
                 gap: .55cqh;
                 list-style-position: outside;
@@ -414,6 +415,7 @@
                     column-gap: 1ch;
                 }
             }
+
             .experience {
                 margin-top: .5lh;
 
@@ -462,6 +464,7 @@
             align-items: start;
             border: 0;
             box-shadow: none;
+
             /* aspect-ratio: auto; */
             height: 100dvh;
             max-height: 430px;
@@ -494,6 +497,7 @@
                 > ul {
                     flex-wrap: wrap;
                     justify-content: space-around;
+
                     li {
                         flex: 0 0 min-content;
                         list-style-type: none;
