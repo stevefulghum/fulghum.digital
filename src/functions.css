@@ -1,0 +1,15 @@
+/* stylelint-disable-next-line at-rule-no-unknown */
+@function --get-aspect-ratio() {
+    result: if(
+        media((width < 768px) and (pointer: coarse)): auto;
+        else: 8.5 / 11;
+    );
+}
+
+/* stylelint-disable-next-line at-rule-no-unknown */
+@function --get-content-justification() {
+    result: if(
+        media(height < 640px): start;
+        else: center;
+    );
+}
