@@ -70,6 +70,18 @@
                     font-size: var(--font-size-header);
                     padding-left: 1cqw;
                 }
+
+                &:has(h4) ~ div p:first-of-type {
+                    padding-left: 0;
+                    
+                    &::after {
+                        content: ",";
+                    }
+
+                    & + p {
+                        padding-left: .5ch;
+                    }
+                }
             }
         }
     
@@ -205,6 +217,7 @@
                 > li {
                     padding-left: 0cqw;
                     white-space: var(--education-li-whitespace-override, nowrap);
+                    break-inside: avoid;
 
                     &:has(ul) {
                         &::marker {
