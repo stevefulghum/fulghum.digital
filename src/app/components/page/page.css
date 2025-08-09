@@ -50,7 +50,8 @@
         box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.1);
         padding: 1.25%;
     
-        @supports not (width: if(true, 100px, 200px)) {
+        /* Temporarily support browsers that don't support if() */
+        @supports not (color: if(media(print): #000)) {
             aspect-ratio: 8.5 / 11;
         }
 
@@ -371,6 +372,11 @@
             padding: 1ch;
             height: auto;
 
+            /* Temporarily support browsers that don't support if() */
+            @supports not (color: if(media(print): #000)) {
+                aspect-ratio: auto;
+            }
+
             .title-heading {
                 height: auto;
                 padding: 1ch 0;
@@ -464,8 +470,6 @@
             align-items: start;
             border: 0;
             box-shadow: none;
-
-            /* aspect-ratio: auto; */
             height: 100dvh;
             max-height: 430px;
             width: auto;
@@ -478,7 +482,7 @@
             grid-auto-columns: max-content;
             grid-template-rows: min-content min-content min-content minmax(0, 1fr);
             column-rule: 2px solid #ddd;
-            gap: 2ch;
+            gap: 0 2ch;
 
             > * {
                 max-height: 100vh;
