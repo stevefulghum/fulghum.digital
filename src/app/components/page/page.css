@@ -3,16 +3,16 @@
 :host {
     /* Font size variables */
     --font-size-main: 16px;
-    --font-size-header: 1.66cqh;
-    --font-size-title-subheading: 1.66cqh;
-    --font-size-introduction: 1.6cqh;
-    --font-size-technical-skills: 1.6cqh;
+    --font-size-header: 1.6cqh;
+    --font-size-title-subheading: 1.4cqh;
+    --font-size-introduction: 1.5cqh;
+    --font-size-technical-skills: 1.5cqh;
     --font-size-education: 1.4cqh;
-    --font-size-education-has-ul: 1.75cqh;
-    --font-size-education-ul-li: 1.6cqh;
-    --font-size-experience-ul-li: 1.55cqh;
-    --font-size-footer-h2: 1.75cqh;
-    --font-size-footer-p: 1.5cqh;
+    --font-size-education-has-ul: 1.6cqh;
+    --font-size-education-ul-li: 1.5cqh;
+    --font-size-experience-ul-li: 1.45cqh;
+    --font-size-footer-h2: 1.6cqh;
+    --font-size-footer-p: 1.4cqh;
     --font-size-experience-article: 1rem;
     --font-size-experience-ul: 1rem;
     --font-size-experience-ul-li-ul-li: 1rem;
@@ -28,7 +28,7 @@
     --space-technical-skills-margin-top: 2cqh;
     --space-education-margin-top: 2cqh;
     --space-list-gap: .55cqh;
-    --space-list-margin-inline-start: 2.5cqw;
+    --space-list-margin-inline-start: 4cqw;
     --space-list-margin-block-start: .25cqh;
     --space-education-nested-ul-margin: .25cqh 0 .5cqh 2.75cqw;
     --space-experience-gap: 1.5cqh;
@@ -207,7 +207,7 @@
             hyphens: none;
             
             p {
-                font-weight: 300;
+                font-weight: 220;
             }
         }
     
@@ -218,10 +218,10 @@
             margin-top: var(--space-technical-skills-margin-top);
     
             ul {
-                margin-left: var(--space-list-margin-inline-start);
+                margin-left: 2.5cqw;
                 
                 li {
-                    font-weight: 300;
+                    font-weight: 250;
                     line-height: 1.5;
                 }
             }
@@ -273,7 +273,7 @@
             grid-column: 6 / -1;
             grid-row: 4/7;
             gap: var(--space-experience-gap);
-    
+
             h2 {
                 margin-top: 1cqh;
                 margin-bottom: -.5cqh;
@@ -294,6 +294,14 @@
                     font-weight: 300;
                     font-size: var(--font-size-experience-ul-li);
                     line-height: 1.35;
+                }
+            }
+
+            article {
+                header {
+                    > div:not(:has(h4, h3)) {
+                        --font-size-header: 1.4cqh;
+                    }
                 }
             }
         }
@@ -550,6 +558,12 @@
                 > article {
                     grid-row: 2 / -1;
                     font-size: var(--font-size-experience-article);
+
+                    header {
+                        > div:not(:has(h4, h3)) {
+                            --font-size-header: 1rem;
+                        }
+                    }
                 }
 
                 > ul {

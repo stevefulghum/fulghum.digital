@@ -2,7 +2,11 @@
 :is(html, body) {
     background-color: #ddd;
     box-sizing: border-box;
-    font-family: 'futura-pt', sans-serif;
+    /* font-family: 'futura-pt', sans-serif; */
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal;
     margin: 0;
     padding: 0;
     min-width: 100vw;
@@ -21,8 +25,8 @@ h1 {
 }
 
 h2 {
-    font-weight: 500;
-    font-size: var(--font-size-h2, 2.25cqh);
+    font-weight: 450;
+    font-size: var(--font-size-h2, 2.125cqh);
     margin: 0;
     padding: 0;
     text-box-trim: trim-both;
@@ -31,7 +35,7 @@ h2 {
 }
 
 h3 {
-    font-weight: 500;
+    font-weight: 400;
     font-size: var(--font-size-h3, 1.95cqh);
     margin: 0;
     padding: 0;
@@ -41,7 +45,7 @@ h3 {
 }
 
 h4 {
-    font-weight: 500;
+    font-weight: 400;
     font-size: var(--font-size-h4, 1.66cqh);
     margin: 0;
     padding: 0;
