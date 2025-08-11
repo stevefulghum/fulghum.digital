@@ -221,7 +221,7 @@
                 margin-left: 2.5cqw;
                 
                 li {
-                    font-weight: 250;
+                    font-weight: 240;
                     line-height: 1.5;
                 }
             }
@@ -259,7 +259,7 @@
 
                             li {
                                 font-size: var(--font-size-education-ul-li);
-                                font-weight: 300;
+                                font-weight: 240;
                                 padding-left: 0cqw;
                                 line-height: 1.5;
                             }
@@ -291,7 +291,7 @@
     
                 li {
                     padding-left: .25cqw;
-                    font-weight: 300;
+                    font-weight: 240;
                     font-size: var(--font-size-experience-ul-li);
                     line-height: 1.35;
                 }
