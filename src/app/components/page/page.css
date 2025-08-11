@@ -137,7 +137,7 @@
                 gap: 0 .125cqw;
 
                 > p {
-                    font-weight: 300;
+                    font-weight: 240;
                     font-style: italic;
                     font-size: var(--font-size-header);
                     padding-left: 1cqw;
@@ -238,7 +238,7 @@
                 list-style: none;
     
                 > li {
-                    padding-left: 0cqw;
+                    padding-left: 0;
                     white-space: var(--education-li-whitespace-override, nowrap);
                     break-inside: avoid;
 
@@ -249,18 +249,18 @@
 
                         font-size: var(--font-size-education-has-ul);
                         padding-left: 0;
-                        font-weight: 400;
+                        font-weight: 350;
                         margin-left: 0;
 
                         ul {
                             margin: var(--space-education-nested-ul-margin);
-                            padding-left: 0cqw;
+                            padding-left: 0;
                             list-style-type: disc;
 
                             li {
                                 font-size: var(--font-size-education-ul-li);
                                 font-weight: 240;
-                                padding-left: 0cqw;
+                                padding-left: 0;
                                 line-height: 1.5;
                             }
                         }
