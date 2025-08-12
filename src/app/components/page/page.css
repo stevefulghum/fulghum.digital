@@ -190,6 +190,10 @@
                         font-weight: 240;
                         line-height: 1.5;
                     }
+
+                    @supports not (color: if(media(print): #000)) {
+                        margin-left: 1.5cqh;
+                    }
                 }
             }
         
