@@ -13,3 +13,26 @@
         else: center;
     );
 }
+
+/* stylelint-disable-next-line at-rule-no-unknown */
+@function --set-by-media(--a, --b, --c) {
+    result: if(
+        media(height < 640px): var(--c);
+        media(640px <= height < 1024px) and media(pointer: coarse): var(--b);
+        else: var(--a);
+    );
+}
+
+/* stylelint-disable-next-line at-rule-no-unknown */
+@function --set-by-style(--a, --b, --c) {
+    result: if(
+        style(--screen-mode: mobile): var(--c);
+        style(--screen-mode: tablet): var(--b);
+        else: var(--a);
+    );
+}
+
+/* stylelint-disable-next-line at-rule-no-unknown */
+@function --set-responsive-font-size(--a, --b, --c) {
+    result: --set-by-style(--a, --b, --c);
+}

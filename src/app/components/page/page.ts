@@ -5,7 +5,10 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './page.html',
-  styleUrl: './page.css'
+  styleUrls: [
+    './page.css',
+    './page-fallback.css'
+  ]
 })
 export class Page {
 

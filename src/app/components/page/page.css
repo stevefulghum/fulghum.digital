@@ -1,602 +1,473 @@
 @import url('../../../functions.css');
 
-:host {
-    /* Font size variables */
-    --font-size-main: 16px;
-    --font-size-header: 1.6cqh;
-    --font-size-title-subheading: 1.4cqh;
-    --font-size-introduction: 1.5cqh;
-    --font-size-technical-skills: 1.5cqh;
-    --font-size-education: 1.4cqh;
-    --font-size-education-has-ul: 1.6cqh;
-    --font-size-education-ul-li: 1.5cqh;
-    --font-size-experience-ul-li: 1.45cqh;
-    --font-size-footer-h2: 1.6cqh;
-    --font-size-footer-p: 1.4cqh;
-    --font-size-experience-article: 1rem;
-    --font-size-experience-ul: 1rem;
-    --font-size-experience-ul-li-ul-li: 1rem;
+@layer page {
+    :host {
+        background-color: #ddd;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: --get-content-justification();
+        width: 100%;
+        height: 100vh;
 
-    /* Spacing variables */
-    --space-page-gap-x: 1.5%;
-    --space-main-padding: 1.25%;
-    --space-h1-margin-bottom: 1.25cqh;
-    --space-section-gap: 1cqh;
-    --space-title-heading-list-gap: 1ch;
-    --space-title-subheading-gap: 1cqh;
-    --space-title-subheading-padding-inline-start: 1.75cqw;
-    --space-technical-skills-margin-top: 2cqh;
-    --space-education-margin-top: 2cqh;
-    --space-list-gap: .55cqh;
-    --space-list-margin-inline-start: 4cqw;
-    --space-list-margin-block-start: .25cqh;
-    --space-education-nested-ul-margin: .25cqh 0 .5cqh 2.75cqw;
-    --space-experience-gap: 1.5cqh;
-    --space-footer-gap: 1cqh;
-    --space-footer-section-padding: 1cqh;
+        main {
+            container-type: --set-by-style(size, unset, unset);
+            container-name: resume-page;
+            aspect-ratio: --get-aspect-ratio();
+            display: --set-by-style(grid, grid, block);
+            grid-template-columns: --set-by-style(
+                repeat(16, minmax(0, 1fr)),
+                40ch,
+                minmax(0, 1fr)
+            );
+            grid-template-rows: repeat(5, min-content) minmax(0, 1fr) min-content;
+            width: --set-by-style(auto, 100vw, auto);
+            height: --set-by-style(90vh, 100dvh, auto);
+            min-height: --set-by-style(min(640px, 400vh), 0, 0);
+            gap: --set-by-style(0 1.5%, 0, 0 2ch);
+            border: --set-by-style(1px solid #000, 0, 0);
+            box-sizing: border-box;
+            background-color: #fff;
+            color: #000;
+            font-size: 16px;
+            box-shadow: --set-by-style(0 0 10px 4px rgba(0, 0, 0, 0.1), 0, 0);
+            padding: --set-by-style(1.25%, 1.25%, 1ch);
 
-    background-color: #ddd;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: --get-content-justification();
-    width: 100%;
-    height: 100vh;
-
-    main {
-        container-type: size;
-        container-name: resume-page;
-        aspect-ratio: --get-aspect-ratio();
-        display: grid;
-        grid-template-columns: repeat(16, minmax(0, 1fr));
-        grid-template-rows: repeat(5, min-content) minmax(0, 1fr) min-content;
-        width: auto;
-        height: 90vh;
-        min-height: min(640px, 400vh);
-        gap: 0 var(--space-page-gap-x);
-        border: 1px solid #000;
-        box-sizing: border-box;
-        background-color: #fff;
-        color: #000;
-        font-size: var(--font-size-main);
-        box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.1);
-        padding: var(--space-main-padding);
-        
-        /* Flex utilities */
-        :where(.u-flex-col-start) {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: flex-start;
-        }
-
-        :where(.u-flex-row-center-start) {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: flex-start;
-        }
-
-        :where(.u-flex-row-start-start) {
-            display: flex;
-            flex-direction: row;
-            align-items: flex-start;
-            justify-content: flex-start;
-        }
-
-        :where(.u-flex-row-baseline-start) {
-            display: flex;
-            flex-direction: row;
-            align-items: baseline;
-            justify-content: flex-start;
-        }
-
-        /* Shared element resets within the page */
-        ul {
-            margin: 0;
-            padding: 0;
-        }
-        
-        p {
-            margin: 0;
-            padding: 0;
-        }
-    
-        /* Temporarily support browsers that don't support if() */
-        @supports not (color: if(media(print): #000)) {
-            aspect-ratio: 8.5 / 11;
-        }
-
-        h1 {
-            grid-column: 1 / -1;
-            grid-row: 1 / 2;
-            margin-bottom: 1.25cqh;
-        }
-
-        /* Shared section layout */
-        .section {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: flex-start;
-            gap: var(--space-section-gap);
-        }
-
-        /* Shared flex UL layout */
-        :where(.technical-skills ul, .education > ul, .experience ul) {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: flex-start;
-        }
-
-        header {
-            gap: .25cqh;
-    
-            > div {
-                gap: 0 .125cqw;
-
-                > p {
-                    font-weight: 240;
-                    font-style: italic;
-                    font-size: var(--font-size-header);
-                    padding-left: 1cqw;
-                }
-
-                &:has(h4) ~ div p:first-of-type {
-                    padding-left: 0;
-                    
-                    &::after {
-                        content: ",";
-                    }
-
-                    & + p {
-                        padding-left: .5ch;
-                    }
-                }
-            }
-        }
-    
-        /* Shared layout for section headers */
-        :is(.title-heading, .title-subheading) {
-            grid-column: 1 / -1;
-            font-size: var(--font-size-title-subheading);
-        }
-
-        .title-heading {
-            background-color: rgba(0, 0, 0, 0.2);
-            grid-row: 2 / 3;
-    
-            > ul {
-                margin: 0 0 0 .5cqw;
+            /* Shared element resets within the page */
+            :is(ul, p) {
+                margin: 0;
                 padding: 0;
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                justify-content: flex-start;
-                list-style-position: inside;
-                gap: var(--space-title-heading-list-gap);
-    
-                li {
-                    &:first-child {
-                        &::marker {
-                            content: none;
+            }
+        
+            h1 {
+                grid-column: 1 / -1;
+                grid-row: 1 / 2;
+                margin-bottom: 1.25cqh;
+            }
+
+            header {
+                gap: .25cqh;
+        
+                > div {
+                    gap: 0 .125cqw;
+
+                    > p {
+                        font-weight: 240;
+                        font-style: italic;
+                        font-size: --set-by-style(1.6cqh, 1rem, 1rem);
+                        padding-left: 1cqw;
+                    }
+
+                    &:has(h4) ~ div p:first-of-type {
+                        padding-left: 0;
+                        
+                        &::after {
+                            content: ",";
+                        }
+
+                        & + p {
+                            padding-left: .5ch;
                         }
                     }
-    
-                    line-height: 1.75;
-                    padding-left: 1ch;
                 }
             }
-        }
-    
-        .title-subheading {
-            background-color: rgba(0, 0, 0, 0.125);
-            height: 3cqh;
-            font-weight: 300;
-            grid-row: 3 / 4;
-            gap: var(--space-title-subheading-gap);
-            padding-left: var(--space-title-subheading-padding-inline-start);
-        }
-    
-        .introduction {
-            grid-column: 1 / 6;
-            font-size: var(--font-size-introduction);
-            grid-row: 4 / 5;
-            margin-top: 1cqh;
-            hyphens: none;
             
-            p {
-                font-weight: 220;
-            }
-        }
-    
-        .technical-skills {
-            grid-column: 1 / 6;
-            grid-row: 5 / 6;
-            font-size: var(--font-size-technical-skills);
-            margin-top: var(--space-technical-skills-margin-top);
-    
-            ul {
-                margin-left: 2.5cqw;
+            footer {
+                grid-column: 1 / -1;
+                grid-row: 7 / 8;
+                gap: --set-by-style(1cqh, 1cqh, 1ch);
                 
-                li {
-                    font-weight: 240;
-                    line-height: 1.5;
+                > section {
+                    box-sizing: border-box;
+                    flex: 1 1 0;
+                    background-color: rgba(0, 0, 0, 0.125);
+                    padding: --set-by-style(1cqh, 1cqh, 1ch);
+                    border-radius: .5cqh;
+                    width: 50%;
+        
+                    h2 {
+                        margin: 0 0 .75cqh;
+                        font-size: --set-by-style(1.6cqh, 1.25rem, 1.25rem);
+                    }
+
+                    p {
+                        font-weight: 300;
+                        font-size: --set-by-style(1.4cqh, 1rem, 1rem);
+                    }
+                }
+            }        
+
+            /* Shared section layout */
+            .section {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-start;
+                gap: 1cqh;
+            }
+
+            /* Shared flex UL layout */
+            :where(.technical-skills ul, .education > ul, .experience ul) {
+                display: --set-by-style(flex, flex, block);
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-start;
+            }
+        
+            /* Shared layout for section headers */
+            :is(.title-heading, .title-subheading) {
+                grid-column: 1 / -1;
+                font-size: --set-by-style(1.4cqh, 1rem, 1rem);
+            }
+
+            .title-heading {
+                background-color: rgba(0, 0, 0, 0.2);
+                grid-row: 2 / 3;
+        
+                > ul {
+                    margin: 0 0 0 .5cqw;
+                    padding: 0;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: flex-start;
+                    list-style-position: inside;
+                    gap: 1ch;
+        
+                    li {
+                        &:first-child {
+                            &::marker {
+                                content: none;
+                            }
+                        }
+        
+                        line-height: 1.75;
+                        padding-left: 1ch;
+                    }
                 }
             }
-        }
-    
-        .education {
-            grid-column: 1 / 6;
-            grid-row: 6 / 7;
-            font-size: var(--font-size-education);
-            margin-top: var(--space-education-margin-top);
+        
+            .title-subheading {
+                background-color: rgba(0, 0, 0, 0.125);
+                height: --set-by-style(3cqh, min-content, auto);
+                font-weight: 300;
+                grid-row: 3 / 4;
+                flex-flow: --set-by-style(
+                    unset,
+                    column nowrap,
+                    column nowrap
+                );
+                gap: 1cqh;
+                padding: --set-by-style(
+                    0 0 0 1.75cqw,
+                    1ch 0,
+                    1ch 0
+                );
+            }
+        
+            .introduction {
+                grid-column: 1 / 6;
+                font-size: --set-by-style(1.5cqh, 1rem, 1rem);
+                grid-row: 4 / 5;
+                margin-top: 1cqh;
+                hyphens: none;
+                
+                p {
+                    font-weight: 220;
+                }
+            }
+        
+            .technical-skills {
+                grid-column: 1 / 6;
+                grid-row: 5 / 6;
+                font-size: --set-by-style(1.5cqh, 1rem, 1rem);
+                margin-top: ;
+        
+                ul {
+                    margin-left: --set-by-style(2.5cqw, 2.5cqw, 3ch);
+                    
+                    li {
+                        font-weight: 240;
+                        line-height: 1.5;
+                    }
+                }
+            }
+        
+            .education {
+                grid-column: 1 / 6;
+                grid-row: 6 / 7;
+                font-size: --set-by-style(1.4cqh, 1rem, 1rem);
+                margin-top: 2cqh;
 
-    
-            > ul {
-                list-style: none;
-    
-                > li {
-                    padding-left: 0;
-                    white-space: var(--education-li-whitespace-override, nowrap);
-                    break-inside: avoid;
-
-                    &:has(ul) {
-                        &::marker {
-                            content: none;
-                        }
-
-                        font-size: var(--font-size-education-has-ul);
+        
+                > ul {
+                    list-style: none;
+        
+                    > li {
                         padding-left: 0;
-                        font-weight: 350;
-                        margin-left: 0;
+                        white-space: --set-by-style(nowrap, nowrap, normal);
+                        break-inside: avoid;
 
-                        ul {
-                            margin: var(--space-education-nested-ul-margin);
+                        &:has(ul) {
+                            &::marker {
+                                content: none;
+                            }
+
+                            font-size: --set-by-style(1.6cqh, 1rem, 1rem);
                             padding-left: 0;
-                            list-style-type: disc;
+                            font-weight: 350;
+                            margin-left: 0;
 
-                            li {
-                                font-size: var(--font-size-education-ul-li);
-                                font-weight: 240;
+                            ul {
+                                margin: .25cqh 0 .5cqh 2.75cqw;
                                 padding-left: 0;
-                                line-height: 1.5;
+                                list-style-type: disc;
+
+                                li {
+                                    font-size: --set-by-style(1.5cqh, 1rem, 1rem);
+                                    font-weight: 240;
+                                    padding-left: 0;
+                                    line-height: 1.5;
+                                }
                             }
                         }
                     }
                 }
             }
-        }
-    
-        .experience {
-            grid-column: 6 / -1;
-            grid-row: 4/7;
-            gap: var(--space-experience-gap);
+        
+            .experience {
+                grid-column: 6 / -1;
+                grid-row: 4/7;
+                gap: 1.5cqh;
 
-            h2 {
-                margin-top: 1cqh;
-                margin-bottom: -.5cqh;
-            }
-    
-            p {
-                line-height: 1.25;
-            }
-    
-            ul {
-                gap: var(--space-list-gap);
-                list-style-position: outside;
-                margin-left: var(--space-list-margin-inline-start);
-                margin-top: var(--space-list-margin-block-start);
-    
-                li {
-                    padding-left: .25cqw;
-                    font-weight: 240;
-                    font-size: var(--font-size-experience-ul-li);
-                    line-height: 1.35;
-                }
-            }
 
-            article {
-                header {
-                    > div:not(:has(h4, h3)) {
-                        --font-size-header: 1.4cqh;
-                    }
-                }
-            }
-        }
-    
-        footer {
-            grid-column: 1 / -1;
-            grid-row: 7 / 8;
-            gap: var(--space-footer-gap);
-            
-            > section {
-                box-sizing: border-box;
-                flex: 1 1 0;
-                background-color: rgba(0, 0, 0, 0.125);
-                padding: var(--space-footer-section-padding);
-                border-radius: .5cqh;
-                width: 50%;
-    
                 h2 {
-                    margin: 0 0 .75cqh;
-                    font-size: var(--font-size-footer-h2);
+                    margin-top: 1cqh;
+                    margin-bottom: -.5cqh;
+                }
+
+                article {
+                    font-size: --set-by-style(inherit, 1rem, 1rem);
                 }
 
                 p {
-                    font-weight: 300;
-                    font-size: var(--font-size-footer-p);
+                    line-height: 1.25;
+                }
+        
+                ul {
+                    font-size: --set-by-style(inherit, 1rem, 1rem);
+                    gap: .55cqh;
+                    list-style-position: outside;
+                    margin-left: --set-by-style(4cqw, 4cqw, 3ch);
+                    margin-top: --set-by-style(.25cqh, .25cqh, .25ch);
+        
+                    li {
+                        padding-left: .25cqw;
+                        font-weight: 240;
+                        font-size: --set-by-style(1.45cqh, 1rem, 1rem);
+                        line-height: 1.35;
+                    }
+                }
+
+                
+                @container(style(--screen-mode: mobile)) {
+                    margin-top: .5lh;
+
+                    ul {
+                        display: flex;
+                        margin-left: 3ch;
+                        padding-right: 2ch;
+                    }
+                }
+
+                @container(style(--screen-mode: tablet)) {
+                    display: grid;
+                    grid-column: 4 / 5;
+                    grid-row: 1 / -1;
+                    grid-template-columns: minmax(0, 1fr);
+                    grid-template-rows: min-content minmax(0, 1fr);
+                    grid-auto-flow: column;
+                    grid-auto-rows: min-content;
+                    width: max-content;
+
+                    > h2 {
+                        grid-column: 1 / -1;
+                        grid-row: 1 / 2;
+                    }
+
+                    > article {
+                        grid-row: 2 / -1;
+                    }
+
+                    > ul {
+                        li {
+                            white-space: normal;
+                            font-size: --set-by-style(1.45cqh, 1rem, 1rem) !important;
+                        }
+                    }
                 }
             }
-        }
-    }
-
-    @media only screen and (width < 768px) and (pointer: coarse) {
-        /* Spacing overrides for mobile */
-        --space-main-padding: 1ch;
-        --space-list-margin-inline-start: 3ch;
-        --space-footer-gap: 1ch;
-        --space-footer-section-padding: 1ch;
-        --font-size-h2: 1.5rem;
-        --font-size-h3: 1.25rem;
-        --font-size-h4: 1.125rem;
-        --font-size-header: 1.125rem;
-        --font-size-title-subheading: 1rem;
-        --font-size-introduction: 1rem;
-        --font-size-technical-skills: .95rem;
-        --font-size-education: .95rem;
-        --font-size-education-ul-li: .95rem;
-        --font-size-experience-article: .95rem;
-        --font-size-experience-ul: 1rem;
-        --font-size-experience-ul-li: 1rem;
-        --font-size-experience-ul-li-ul-li: 1rem;
-        --font-size-education-has-ul: 1rem;
-        --font-size-footer-h2: 1.25rem;
-        --font-size-footer-p: 1rem;
-        --education-li-whitespace-override: normal;
-                
-        display: block;
-        width: 100vw;
-        flex: 1 1 max-content;
-        height: max-content;
-        
-        main {
-            container-type: unset;
-            display: block;
-            border: 0;
-            box-shadow: none;
-            width: 100vw;
-            grid-template-columns: minmax(0, 1fr);
-            grid-auto-rows: min-content;
-            min-height: 0;
-            gap: 0;
-            padding: 1ch;
-            height: auto;
 
             /* Temporarily support browsers that don't support if() */
             @supports not (color: if(media(print): #000)) {
-                aspect-ratio: auto;
+                aspect-ratio: 8.5 / 11;
             }
 
-            .title-heading {
-                height: auto;
-                padding: 1ch 0;
-
-                > ul {
-                    list-style-position: outside;
-                    list-style-type: none;
-                    justify-content: space-around;
-
-                    li {
-                        flex: 0 0 min-content;
-                        line-height: 1.25;
-                        text-align: center;
-                        padding-left: 0;
-
-                        &:nth-child(2) {
-                            flex: 0 0 8ch;
-                        }
-                    }
-                }
-            }
-
-            .title-subheading {
-                flex-flow: column nowrap;
-                height: auto;
-                padding: 1ch 0;
-            }
-
-            .technical-skills {
-                ul {
-                    display: block;
-                    column-count: 2;
-                    column-gap: 3ch;
-                    margin-left: 3ch;
-                }
-            }
-
-            .education {
-                > ul {
-                    display: block;
-                    column-count: 2;
-                    column-gap: 1ch;
-                }
-            }
-
-            .experience {
-                margin-top: .5lh;
-
-                ul {
-                    margin-left: 3ch;
-                    padding-right: 2ch;
-                }
-            }
-
-            footer {
-                flex-flow: column nowrap;
-                gap: 1ch;
-                margin: 1ch 0;
-                padding-bottom: 1ch;
-
-                > section {
-                    width: 100%;
-                }
-            }
-        }
-    }
-
-    @media only screen and (768px <= width < 1024px) and (orientation: landscape) and (pointer: coarse) {
-        /* Spacing overrides for tablet landscape */
-        --space-page-gap-x: 2ch;
-        --font-size-h1: 2.5rem;
-        --font-size-h2: 1.5rem;
-        --font-size-h3: 1.25rem;
-        --font-size-h4: 1.125rem;
-        --font-size-header: 1.125rem;
-        --font-size-title-subheading: 1rem;
-        --font-size-introduction: 1rem;
-        --font-size-technical-skills: 1rem;
-        --font-size-education: 1rem;
-        --font-size-education-ul-li: 1rem;
-        --font-size-experience-article: 1rem;
-        --font-size-experience-ul: 1rem;
-        --font-size-experience-ul-li: 1rem;
-        --font-size-experience-ul-li-ul-li: 1rem;
-        --font-size-education-has-ul: 1rem;
-        --font-size-footer-h2: 1.25rem;
-        --font-size-footer-p: 1rem;
-
-
-        main {
-            align-items: start;
-            border: 0;
-            box-shadow: none;
-            height: 100dvh;
-            max-height: 430px;
-            width: auto;
-            min-width: 100vw;
-            min-height: 0;
-            overflow-y: hidden;
-            display: grid;
-            grid-template-columns: 40ch;
-            grid-auto-flow: column;
-            grid-auto-columns: max-content;
-            grid-template-rows: min-content min-content min-content minmax(0, 1fr);
-            column-rule: 2px solid #ddd;
-            gap: 0 2ch;
-
-            > * {
-                max-height: 100vh;
-            }
-
-            h1 {
-                grid-column: 1 / 2;
-                grid-row: 1 / 2;
-            }
-
-            .title-heading {
-                grid-column: 1 / 2;
-                grid-row: 2 / 3;
-                padding-right: 1ch;
-
-                > ul {
-                    flex-wrap: wrap;
-                    justify-content: space-around;
-
-                    li {
-                        flex: 0 0 min-content;
-                        list-style-type: none;
-                        white-space: nowrap;
-                        text-align: center;
-                        padding: 0;
-                    }
-                }
-            }
-
-            .title-subheading {
-                grid-column: 1 / 2;
-                grid-row: 3 / 4;
-                height: min-content;
-                flex-flow: column nowrap;
-                padding: 1ch 0;
-            }
-
-            .introduction {
-                grid-column: 1 / 2;
-                grid-row: 4 / 5;
-                max-width: 75ch;
-                height: 4lh;
-            }
-
-            .technical-skills {
-                grid-column: 2 / 3;
-                grid-row: 1 / -1;
-            }
-
-            .education {
-                grid-column: 3 / 4;
-                grid-row: 1 / -1;
-            }
-
-            .experience {
-                display: grid;
-                grid-column: 4 / 5;
-                grid-row: 1 / -1;
-                grid-template-columns: minmax(0, 1fr);
-                grid-template-rows: min-content minmax(0, 1fr);
-                grid-auto-flow: column;
+            @container(style(--screen-mode: mobile)) {
                 grid-auto-rows: min-content;
-                width: max-content;
-                
 
-                > h2 {
-                    grid-column: 1 / -1;
-                    grid-row: 1 / 2;
+                @supports not (color: if(media(print): #000)) {
+                    aspect-ratio: auto;
                 }
 
-                > article {
-                    grid-row: 2 / -1;
-                    font-size: var(--font-size-experience-article);
+                .title-heading {
+                    height: auto;
+                    padding: 1ch 0;
 
-                    header {
-                        > div:not(:has(h4, h3)) {
-                            --font-size-header: 1rem;
-                        }
-                    }
-                }
+                    > ul {
+                        list-style-position: outside;
+                        list-style-type: none;
+                        justify-content: space-around;
 
-                > ul {
-                    font-size: var(--font-size-experience-ul);
+                        li {
+                            flex: 0 0 min-content;
+                            line-height: 1.25;
+                            text-align: center;
+                            padding-left: 0;
 
-                    li {
-                        white-space: normal;
-                        font-size: var(--font-size-experience-ul-li) !important;
-                        
-                        ul {
-                            li {
-                                font-size: var(--font-size-experience-ul-li-ul-li) !important;
+                            &:nth-child(2) {
+                                flex: 0 0 8ch;
                             }
                         }
                     }
                 }
-            }
 
-            footer {
-                grid-column: 5/6;
-                grid-row: 1/-1;
-                flex-flow: column nowrap;
-
-                > section {
-                    width: max-content;
-                    flex: 0 0 max-content;
-                    padding-right: 2ch;
+                .introduction {
+                    margin-bottom: 1lh;
                 }
 
-                p {
-                    line-height: 1.5;
+                .technical-skills {
+                    ul {
+                        column-count: 2;
+                        column-gap: 3ch;
+                    }
+                }
+
+                .education {
+                    > ul {
+                        column-count: 2;
+                        column-gap: 1ch;
+                    }
+                }
+
+                footer {
+                    flex-flow: column nowrap;
+                    gap: 1ch;
+                    margin: 1ch 0;
+                    padding-bottom: 1ch;
+
+                    > section {
+                        width: 100%;
+                    }
                 }
             }
+
+            @container(style(--screen-mode: tablet)) {
+                align-items: start;
+                max-height: 430px;
+                min-width: 100vw;
+                overflow-y: hidden;
+                grid-auto-flow: column;
+                grid-auto-columns: max-content;
+                grid-template-rows: min-content min-content min-content minmax(0, 1fr);
+                column-rule: 2px solid #ddd;
+
+                > * {
+                    max-height: 100vh;
+                }
+
+                h1 {
+                    grid-column: 1 / 2;
+                    grid-row: 1 / 2;
+                }
+
+                .title-heading {
+                    grid-column: 1 / 2;
+                    grid-row: 2 / 3;
+                    padding-right: 1ch;
+
+                    > ul {
+                        flex-wrap: wrap;
+                        justify-content: space-around;
+
+                        li {
+                            flex: 0 0 min-content;
+                            list-style-type: none;
+                            white-space: nowrap;
+                            text-align: center;
+                            padding: 0;
+                        }
+                    }
+                }
+
+                .title-subheading {
+                    grid-column: 1 / 2;
+                }
+
+                .introduction {
+                    grid-column: 1 / 2;
+                    grid-row: 4 / 5;
+                    max-width: 75ch;
+                    height: 4lh;
+                }
+
+                .technical-skills {
+                    grid-column: 2 / 3;
+                    grid-row: 1 / -1;
+                }
+
+                .education {
+                    grid-column: 3 / 4;
+                    grid-row: 1 / -1;
+                }
+
+                footer {
+                    grid-column: 5/6;
+                    grid-row: 1/-1;
+                    flex-flow: column nowrap;
+
+                    > section {
+                        width: max-content;
+                        flex: 0 0 max-content;
+                        padding-right: 2ch;
+                    }
+
+                    p {
+                        line-height: 1.5;
+                    }
+                }            
+            }
+        }
+
+
+        @media only screen and (width < 768px) and (pointer: coarse) {
+            --screen-mode: mobile;
+            --font-size-h2: 1.5rem;
+            --font-size-h3: 1.25rem;
+            --font-size-h4: 1.125rem;
+                    
+            display: block;
+            width: 100vw;
+            flex: 1 1 max-content;
+            height: max-content;
+        }
+
+        @media only screen and (768px <= width < 1024px) and (orientation: landscape) and (pointer: coarse) {
+            --screen-mode: tablet;
+            --font-size-h1: 2.5rem;
+            --font-size-h2: 1.5rem;
+            --font-size-h3: 1.25rem;
+            --font-size-h4: 1.125rem;
         }
     }
 }

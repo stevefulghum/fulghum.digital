@@ -1,7 +1,9 @@
-:host {
-    box-sizing: border-box;
-    display: block;
-    width: 100vw;
-    overflow-x: hidden;
-    min-height: 100vh;
+@layer page {
+    :host {
+        box-sizing: border-box;
+        display: block;
+        width: 100vw;
+        overflow-x: hidden;
+        min-height: 100vh;
+    }
 }
