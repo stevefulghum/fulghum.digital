@@ -1,15 +1,18 @@
 @import url('../../../functions.css');
+@import url('./page-fallback.css') supports(not (color: if(media(print): #000)));
 
 @layer page {
-    :host {
-        background-color: #ddd;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: --get-content-justification();
-        width: 100%;
-        height: 100vh;
-
+    @scope(app-page) {
+        :scope {
+            background-color: #ddd;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: --get-content-justification();
+            width: 100%;
+            height: 100vh;
+        }
+        
         main {
             container-type: --set-by-style(size, unset, unset);
             container-name: resume-page;
@@ -33,7 +36,6 @@
             box-shadow: --set-by-style(0 0 10px 4px rgba(0, 0, 0, 0.1), 0, 0);
             padding: --set-by-style(1.25%, 1.25%, 1ch);
 
-            /* Shared element resets within the page */
             :is(ul, p) {
                 margin: 0;
                 padding: 0;
@@ -183,7 +185,7 @@
                 grid-column: 1 / 6;
                 grid-row: 5 / 6;
                 font-size: --set-by-style(1.5cqh, 1rem, 1rem);
-                margin-top: ;
+                margin-top: --set-by-style(2cqh, 2cqh, 1ch);
         
                 ul {
                     margin-left: --set-by-style(2.5cqw, 2.5cqw, 3ch);
@@ -329,17 +331,8 @@
                 }
             }
 
-            /* Temporarily support browsers that don't support if() */
-            @supports not (color: if(media(print): #000)) {
-                aspect-ratio: 8.5 / 11;
-            }
-
             @container(style(--screen-mode: mobile)) {
                 grid-auto-rows: min-content;
-
-                @supports not (color: if(media(print): #000)) {
-                    aspect-ratio: auto;
-                }
 
                 .title-heading {
                     height: auto;
@@ -472,23 +465,27 @@
 
 
         @media only screen and (width < 768px) and (pointer: coarse) {
-            --screen-mode: mobile;
-            --font-size-h2: 1.5rem;
-            --font-size-h3: 1.25rem;
-            --font-size-h4: 1.125rem;
-                    
-            display: block;
-            width: 100vw;
-            flex: 1 1 max-content;
-            height: max-content;
+            :scope {
+                --screen-mode: mobile;
+                --font-size-h2: 1.5rem;
+                --font-size-h3: 1.25rem;
+                --font-size-h4: 1.125rem;
+                        
+                display: block;
+                width: 100vw;
+                flex: 1 1 max-content;
+                height: max-content;
+            }
         }
 
         @media only screen and (768px <= width < 1024px) and (orientation: landscape) and (pointer: coarse) {
-            --screen-mode: tablet;
-            --font-size-h1: 2.5rem;
-            --font-size-h2: 1.5rem;
-            --font-size-h3: 1.25rem;
-            --font-size-h4: 1.125rem;
+            :scope {
+                --screen-mode: tablet;
+                --font-size-h1: 2.5rem;
+                --font-size-h2: 1.5rem;
+                --font-size-h3: 1.25rem;
+                --font-size-h4: 1.125rem;
+            }
         }
     }
 }
