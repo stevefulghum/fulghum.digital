@@ -17,7 +17,7 @@
             display: --set-by-style(grid, grid, block);
             grid-template-columns: --set-by-style(
                 repeat(16, minmax(0, 1fr)),
-                40ch,
+                40ch, 
                 minmax(0, 1fr)
             );
             grid-template-rows: repeat(5, min-content) minmax(0, 1fr) min-content;
@@ -260,6 +260,7 @@
                             background-color: rgba(0, 0, 0, 0.125);
                             padding: .25em 0 .25em .5em;
                             translate: -.5em 0;
+                            margin-bottom: .3cqh;
                         }
 
                         p {
@@ -279,13 +280,13 @@
                     gap: .55cqh;
                     list-style-position: outside;
                     margin-left: --set-by-style(4cqw, 4cqw, 3ch);
-                    margin-top: --set-by-style(.25cqh, .25cqh, .25ch);
+                    margin-top: --set-by-style(.5cqh, .25cqh, .25ch);
         
                     li {
                         padding-left: .25cqw;
                         font-weight: 240;
-                        font-size: --set-by-style(1.45cqh, 1rem, 1rem);
-                        line-height: 1.35;
+                        font-size: --set-by-style(1.4cqh, 1rem, 1rem);
+                        line-height: 1.4;
                     }
                 }
 
