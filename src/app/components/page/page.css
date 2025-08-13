@@ -24,7 +24,7 @@
             width: --set-by-style(auto, 100vw, auto);
             height: --set-by-style(90vh, 100dvh, auto);
             min-height: --set-by-style(min(640px, 400vh), 0, 0);
-            gap: --set-by-style(0 1.5%, 0, 0 2ch);
+            gap: --set-by-style(0 1.5%, 0 2ch, 0 2ch);
             border: --set-by-style(1px solid #000, 0, 0);
             box-sizing: border-box;
             background-color: #fff;
@@ -58,13 +58,15 @@
                         padding-left: 1cqw;
                     }
 
-                    &:has(h4) ~ div p:first-of-type {
-                        padding-left: 0;
-                        
+                    h4 {
                         &::after {
                             content: ",";
                         }
+                    }
 
+                    &:has(h4) ~ div p:first-of-type {
+                        padding-left: 0;
+                        
                         & + p {
                             padding-left: .5ch;
                         }
@@ -202,7 +204,6 @@
                 grid-row: 6 / 7;
                 font-size: --set-by-style(1.4cqh, 1rem, 1rem);
                 margin-top: 2cqh;
-
         
                 > ul {
                     list-style: none;
@@ -252,6 +253,21 @@
 
                 article {
                     font-size: --set-by-style(inherit, 1rem, 1rem);
+
+                    header {
+                        > div:has(h3) {
+                            width: 100%;
+                            background-color: rgba(0, 0, 0, 0.125);
+                            padding: .25em 0 .25em .5em;
+                            translate: -.5em 0;
+                        }
+
+                        p {
+                            &:has(time) {
+                                font-size: --set-by-style(1.25cqh, 1rem, 1rem);
+                            }
+                        }
+                    }
                 }
 
                 p {
