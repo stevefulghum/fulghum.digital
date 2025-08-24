@@ -1,59 +1,100 @@
-# FulghumDigital
+# fulghum.digital
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.3.
+Steve's website. Check out my resume, isn't it neat?
 
-## Development server
+I'm particularly proud of the CSS here.
 
-To start a local development server, run:
+## 🚀 Features
 
+- **Angular 20** - Latest Angular with standalone components
+- **Modern CSS** - Clean, responsive design with custom styling
+- **TypeScript** - Full type safety throughout the application
+- **Code Quality** - Integrated linting with Stylelint for CSS
+
+## 🛠️ Tech Stack
+
+- **Frontend**: Angular 20, TypeScript, RxJS
+- **Backend**: Node.js, Express
+- **Styling**: CSS with Stylelint
+- **Build Tools**: Angular CLI, Angular Build
+
+## 📦 Installation
+
+1. Clone the repository:
 ```bash
+git clone <repository-url>
+cd fulghum.digital
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+## 🚦 Development
+
+### Development Server
+Start the development server:
+```bash
+npm start
+# or
 ng serve
 ```
+Navigate to `http://localhost:4200/`. The app will automatically reload when you change any source files.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
+### Build for Production
+Build the project:
 ```bash
-ng generate component component-name
+npm run build
+```
+The build artifacts will be stored in the `dist/` directory.
+
+## 🎨 Code Quality
+
+### CSS Linting
+Check CSS for style issues:
+```bash
+npm run lint:css
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
+Auto-fix CSS issues:
 ```bash
-ng generate --help
+npm run lint:css:fix
 ```
 
-## Building
+## 📁 Project Structure
 
-To build the project run:
-
-```bash
-ng build
+```
+src/
+├── app/
+│   ├── components/
+│   │   └── page/           # Page component
+│   ├── app.config.ts       # App configuration
+│   ├── app.routes.ts       # Routing configuration
+│   └── app.ts              # Root component
+├── styles.css              # Global styles
+├── functions.css           # Utility CSS functions
+└── global.css             # Global CSS variables
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## 🚀 Deployment
 
-## Running unit tests
+The project is configured for server-side rendering. After building, deploy the `dist/` directory to your hosting platform that supports Node.js.
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## 📝 Scripts
 
-```bash
-ng test
-```
+- `npm start` - Start development server
+- `npm run build` - Build for production
+- `npm run watch` - Build in watch mode
+- `npm test` - Run unit tests
+- `npm run serve:ssr:fulghum.digital` - Serve SSR build
+- `npm run lint:css` - Lint CSS files
+- `npm run lint:css:fix` - Fix CSS linting issues
 
-## Running end-to-end tests
+## 🤝 Contributing
 
-For end-to-end (e2e) testing, run:
+This is a personal website project. If you find any issues or have suggestions, feel free to open an issue or submit a pull request.
 
-```bash
-ng e2e
-```
+## 📄 License
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+This project is private and proprietary.
