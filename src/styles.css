@@ -1,6 +1,9 @@
+@import url('./global.css');
+@import url('./functions.css');
+
 @layer base {
     :is(html, body) {
-        background-color: #ddd;
+        background-color: var(--sf-background);
         box-sizing: border-box;
         font-family: "Outfit", sans-serif;
         font-optical-sizing: auto;
@@ -16,7 +19,7 @@
         font-size: var(--font-size-h1, 4.25cqh);
         margin: 0;
         padding: 0;
-        color: #000;
+        color: var(--sf-foreground);
         line-height: 1;
         text-box-trim: trim-both;
         text-box-edge: cap alphabetic;
@@ -89,7 +92,7 @@
     
     @media print {
         html {
-            background-color: #fff !important;
+            background-color: var(--sf-background) !important;
         }
     
         :is(body, app-root, app-page) {
@@ -98,7 +101,7 @@
     
         a {
             text-decoration: none;
-            color: #000;
+            color: var(--sf-foreground);
         }
     
         app-page {
@@ -115,5 +118,11 @@
     @page {
         size: letter portrait;
         margin: .125in;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        body {
+            color-scheme: dark;
+        }
     }
 }

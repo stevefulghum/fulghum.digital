@@ -1,10 +1,11 @@
+@import url('../../../global.css');
 @import url('../../../functions.css');
 @import url('./page-fallback.css') supports(not (color: if(media(print): #000)));
 
 @layer page {
     @scope(app-page) {
         :scope {
-            background-color: #ddd;
+            background-color: var(--sf-background);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -28,12 +29,12 @@
             height: --set-by-style(90vh, 100dvh, auto);
             min-height: --set-by-style(min(640px, 400vh), 0, 0);
             gap: --set-by-style(0 1.5%, 0 2ch, 0 2ch);
-            border: --set-by-style(1px solid #000, 0, 0);
+            border: --set-by-style(1px solid var(--sf-border), 0, 0);
             box-sizing: border-box;
-            background-color: #fff;
-            color: #000;
+            background-color: var(--sf-background);
+            color: var(--sf-foreground);
             font-size: 16px;
-            box-shadow: --set-by-style(0 0 10px 4px rgba(0, 0, 0, 0.1), 0, 0);
+            box-shadow: --set-by-style(0 0 10px 4px #111, 0, 0);
             padding: --set-by-style(1.25%, 1.25%, 1ch);
 
             :is(ul, p) {

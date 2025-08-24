@@ -1,0 +1,14 @@
+:root {
+    --sf-background: light-dark(
+        #ddd,
+        #222
+    );
+    --sf-foreground: light-dark(
+        #000,
+        #ccc
+    );
+    --sf-border: light-dark(
+        #000,
+        #111
+    );
+}
