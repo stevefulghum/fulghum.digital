@@ -1,6 +1,6 @@
 :root {
     --sf-background: light-dark(
-        #ddd,
+        #efefef,
         #222
     );
     --sf-foreground: light-dark(
@@ -15,4 +15,11 @@
         rgba(0, 0, 0, 0.1),
         #111
     );
+
+    @media print {
+        --sf-background: #fff;
+        --sf-foreground: #000;
+        --sf-border: #000;
+        --sf-shadow: transparent;
+    }
 }

@@ -1,12 +1,6 @@
 @layer components {
-  @scope(app-theme-toggle) {
+  @scope(button[theme-toggle]) {
     :scope {
-      @supports not selector(::view-transition) {
-        display: none;
-      }
-    }
-    
-    .theme-toggle {
       position: fixed;
       top: 1rem;
       right: 1rem;
@@ -22,20 +16,24 @@
       justify-content: center;
       transition: all 0.2s ease-in-out;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    }
 
-    .theme-toggle:hover {
-      transform: scale(1.05);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    }
+      &:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      }
+  
+      &:focus {
+        outline: 2px solid var(--sf-foreground);
+        outline-offset: 2px;
+      }
+  
+      &:active {
+        transform: scale(0.95);
+      }
 
-    .theme-toggle:focus {
-      outline: 2px solid var(--sf-foreground);
-      outline-offset: 2px;
-    }
-
-    .theme-toggle:active {
-      transform: scale(0.95);
+      @media print {
+        display: none !important;
+      }
     }
 
     .toggle-icon {
@@ -56,47 +54,28 @@
       transition: all 0.3s ease-in-out;
     }
 
-    /* Show sun icon in dark mode (to switch to light) */
-    .toggle-icon[data-theme="dark"] .sun-icon {
-      opacity: 1;
-      transform: rotate(0deg) scale(1);
-    }
-
-    .toggle-icon[data-theme="dark"] .moon-icon {
-      opacity: 0;
-      transform: rotate(90deg) scale(0.5);
-    }
-
-    /* Show moon icon in light mode (to switch to dark) */
-    .toggle-icon[data-theme="light"] .sun-icon {
-      opacity: 0;
-      transform: rotate(-90deg) scale(0.5);
-    }
-
-    .toggle-icon[data-theme="light"] .moon-icon {
-      opacity: 1;
-      transform: rotate(0deg) scale(1);
-    }
-
-    /* Hide on print */
-    @media print {
-      .theme-toggle {
-        display: none !important;
-      }
-    }
-
-    /* Responsive adjustments */
-    @media (width <= 768px) {
-      .theme-toggle {
-        width: 2.5rem;
-        height: 2.5rem;
-        top: 0.75rem;
-        right: 0.75rem;
+    @scope([data-theme="dark"]) {
+      .sun-icon {
+        opacity: 1;
+        transform: rotate(0deg) scale(1);
       }
 
-      .toggle-icon {
-        width: 1.25rem;
-        height: 1.25rem;
+      .moon-icon {
+        opacity: 0;
+        transform: rotate(90deg) scale(0.5);
+      }
+    }
+    
+
+    @scope([data-theme="light"]) {
+      .sun-icon {
+        opacity: 0;
+        transform: rotate(-90deg) scale(0.5);
+      }
+  
+      .moon-icon {
+        opacity: 1;
+        transform: rotate(0deg) scale(1);
       }
     }
   }
