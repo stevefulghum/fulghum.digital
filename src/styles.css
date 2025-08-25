@@ -120,9 +120,9 @@
         margin: .125in;
     }
 
-    @media (prefers-color-scheme: dark) {
+    /* @media (prefers-color-scheme: dark) {
         body {
             color-scheme: dark;
         }
-    }
+    } */
 }

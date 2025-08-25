@@ -34,7 +34,7 @@
             background-color: var(--sf-background);
             color: var(--sf-foreground);
             font-size: 16px;
-            box-shadow: --set-by-style(0 0 10px 4px #111, 0, 0);
+            box-shadow: --set-by-style(0 0 10px 4px var(--sf-shadow), 0, 0);
             padding: --set-by-style(1.25%, 1.25%, 1ch);
 
             :is(ul, p) {
