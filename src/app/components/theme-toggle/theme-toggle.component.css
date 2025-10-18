@@ -79,4 +79,10 @@
       }
     }
   }
+
+  @supports not (color: if(media(print): #000)) {
+    button[theme-toggle] {
+      display: none !important;
+    }
+  }
 }

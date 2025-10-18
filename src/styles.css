@@ -5,7 +5,6 @@
     :is(html, body) {
         background-color: var(--sf-background);
         box-sizing: border-box;
-        font-family: "Outfit", sans-serif;
         font-optical-sizing: auto;
         font-style: normal;
         margin: 0;
@@ -120,9 +119,9 @@
         margin: .125in;
     }
 
-    /* @media (prefers-color-scheme: dark) {
-        body {
+    @media (prefers-color-scheme: dark) {
+        app-root {
             color-scheme: dark;
         }
-    } */
+    }
 }

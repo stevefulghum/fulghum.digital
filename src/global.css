@@ -3,6 +3,10 @@
         #efefef,
         #222
     );
+    --sf-background-paper: light-dark(
+        #fff,
+        #1a1a1a
+    );    
     --sf-foreground: light-dark(
         #000,
         #ccc
